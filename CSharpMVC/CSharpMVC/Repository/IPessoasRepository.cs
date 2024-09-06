@@ -10,6 +10,8 @@ namespace CSharpMVC.Repository
 
         int ObterUltimoID();
 
+        PessoasModel BuscarCPF(string CPF);
+
         PessoasModel Adicionar(PessoasModel pessoas);
 
         PessoasModel Atualizar(PessoasModel pessoas);

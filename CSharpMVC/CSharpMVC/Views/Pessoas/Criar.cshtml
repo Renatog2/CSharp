@@ -31,7 +31,7 @@
 <!--
     # TODO
     Regras para os Campos do Cadastro:
-    ID: Identificador do Funcionári, Campo obrigatório; Deve ser único;
+    ID: Identificador do Funcionário, Campo obrigatório; Deve ser único;
     Nome: Nome da pessoa, Campo obrigatório;
     CPF: Número do CPF do funcionário, Campo obrigatório; Deve ser único; Não deve permitir dois funcionários com o mesmo CPF;
     Situacao: Identifica se o cadastro está ativo ou inativo, Campo obrigatório; Deve receber apenas os valores “A” para Ativo e “I” para Inativo; Ao gravar pela primeira vez, não deve permitir gravar como “I”;
@@ -42,7 +42,7 @@
 <form class="row g-2" asp-controller="Pessoas" asp-action="Criar" method="post">
     <div class="col-md-2">
         <label for="inputID" class="form-label">ID</label>
-        <input type="number" asp-for="ID" class="form-control" id="inputID" value="@(Model?.ID != null && Model.ID != 0 ? Model.ID : ViewBag.ProximoId)"
+        <input type="number" asp-for="ID" class="form-control" id="inputID" placeholder="Sugerido: @ViewBag.ProximoId" value="@(Model?.ID != null && Model.ID != 0 ? Model.ID : ViewBag.ProximoId)"
                aria-label="ID da Pessoa" required>
     </div>
 

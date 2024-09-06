@@ -22,7 +22,7 @@ namespace CSharpMVC.Controllers
         }
 
 
-        // Obter Pessoa (Construtor vazio se torna um GET)
+        // Criar Pessoa
         public IActionResult Criar()
         {
             // Obter o último ID cadastrado e passa para a View como sugestão
@@ -32,7 +32,7 @@ namespace CSharpMVC.Controllers
         }
 
 
-        // Criar Pessoa
+        // Gravar Pessoa
         [HttpPost]
         public IActionResult Criar(PessoasModel pessoasModel)
         {
@@ -49,6 +49,13 @@ namespace CSharpMVC.Controllers
                 if (pessoasModel.Situacao == "I")
                 {
                     ModelState.AddModelError("Situacao", "Não é permitido cadastrar uma pessoa com situação Inativo");
+                }
+
+                // Impede cadastro de novas Pessoas com o CPF Duplicado
+                var CPFExistente = _pessoasRepository.BuscarCPF(pessoasModel.CPF);
+                if (CPFExistente != null)
+                {
+                    ModelState.AddModelError("CPF", "Já existe uma pessoa cadastrada com esse CPF.");
                 }
 
                 // Para quando nenhuma validação apresentou erros
@@ -81,13 +88,24 @@ namespace CSharpMVC.Controllers
         {
             try
             {
+                // Impede duplicar o CPF com alguém já cadatrado
+                var CPFExistente = _pessoasRepository.BuscarCPF(pessoasModel.CPF);
+                if (CPFExistente != null && CPFExistente.ID != pessoasModel.ID)
+                    if (CPFExistente != null)
+                {
+                    ModelState.AddModelError("CPF", "Já existe uma pessoa cadastrada com esse CPF.");
+                }
+
+                // Para quando nenhuma validação apresentou erros
                 if (ModelState.IsValid)
                 {
                     _pessoasRepository.Atualizar(pessoasModel);
                     TempData["Sucesso"] = "Operação realizada com sucesso";
                     return RedirectToAction("Index");
                 }
-                return View(pessoasModel);
+
+                // Se houver erros de validação, retorna a view com o modelo e os erros
+                return View("Editar", pessoasModel);
             }
             catch (Exception ex)
             {

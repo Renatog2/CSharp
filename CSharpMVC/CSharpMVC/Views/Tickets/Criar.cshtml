@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Cadastrando Ticket";
+
+    // Obter o dia atual para levar em conta no Cadastro
+    var dataAtual = DateTime.Now;
+}
+
+
+<!-- Exibir as mensagens dos erros tratados no Controller-->
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Cadastrando Ticket</h1>
+</div>
+
+
+<!--
+    # TODO
+    Regras para os Campos do Cadastro:
+    ID: Identificador do Ticket, Campo obrigatório; Deve ser único;
+    Pessoa: Identificar a pessoa, Campo obrigatório;
+    Quantidade: Quantidade de tickets entregue, Campo obrigatório;
+    Situacao: Identifica se o cadastro está ativo ou inativo, Campo obrigatório; Deve receber apenas os valores “A” para Ativo e “I” para Inativo; Ao gravar pela primeira vez, não deve permitir gravar como “I”;
+    data_De_Entrega: Armazena a data e hora que foi entregue o ticket
+-->
+
+
+<form class="row g-2" asp-controller="Tickets" asp-action="Criar" method="post">
+    <div class="col-md-2">
+        <label for="inputID" class="form-label">ID</label>
+        <!--<input type="number" class="form-control" id="inputID" value="@(Model?.ID != null && Model.ID != 0 ? Model.ID : ViewBag.ProximoId)" aria-label="ID da Pessoa" required>-->
+        <input type="number" class="form-control" id="inputID" aria-label="ID do Ticket" required>
+    </div>
+    <div class="col-md-10">
+        <label for="selectPessoa" class="form-label">Pessoa</label>
+        <select class="form-select" id="selectPessoa" required>
+            <option selected value="A">Ativo</option>
+            <option value="I">Inativo</option>
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <label for="selectSituacao" class="form-label">Situação</label>
+        <select class="form-select" id="selectSituacao" required>
+            <option selected value="A">Ativo</option>
+            <option value="I">Inativo</option>
+        </select>
+    </div>
+    <div class="col-md-5">
+        <label for="selectSituacao" class="form-label">Quantidade de Tickets Entregues</label>
+        <input type="number" class="form-control" id="inputQuantidade" placeholder="123" aria-label="Quantidade de Tickets" required>
+    </div>
+    <input type="hidden" value="@dataAtual" />
+    <div class="col-md-5">
+        <label for="inputData" class="form-label">Data do Cadastro</label>
+        <input type="datetime" class="form-control" id="inputData" value="@dataAtual" aria-label="Data do Cadastro do Ticket" disabled>
+    </div>
+
+    <!--d-flex justify-content-between: Vai fazer ocupar todas as 12 colunas do Bootstrap mantendo cada botão em um canto da página-->
+    <div class="col-12 d-flex justify-content-between">
+        <a role="button" class="btn btn-secondary col-1" asp-controller="Tickets" asp-action="Index">Voltar</a>
+        <button class="btn btn-success col-3" id="buttonCriar" type="submit">Criar</button>
+    </div>
+</form>

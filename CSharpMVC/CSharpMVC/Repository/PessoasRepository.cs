@@ -50,10 +50,19 @@ namespace CSharpMVC.Repository
             return pessoas;
         }
 
+
+        // Obter o ultimo ID em uso
         public int ObterUltimoID()
         {
             var ultimoID = _dbContext.Pessoas.OrderByDescending(p => p.ID).FirstOrDefault();
             return ultimoID != null ? ultimoID.ID : 0;
+        }
+
+
+        // Verifica CPF dubplicado
+        public PessoasModel BuscarCPF(string CPF)
+        {
+            return _dbContext.Pessoas.FirstOrDefault(x => x.CPF == CPF);
         }
     }
 }

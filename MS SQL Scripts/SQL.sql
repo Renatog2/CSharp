@@ -17,3 +17,11 @@ CREATE TABLE Pessoas(
 SET IDENTITY_INSERT Pessoas ON;
 
 
+/*Criando tabela Tickets*/
+CREATE TABLE Tickets(
+	ID int NOT NULL PRIMARY KEY,
+	FK_IDPessoas int FOREIGN KEY REFERENCES Pessoas (ID) NOT NULL,
+	quantidade int NOT NULL,
+	situacao varchar (1) NOT NULL,
+	dataDeEntrega datetime
+);
