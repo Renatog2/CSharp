@@ -1,0 +1,79 @@
+﻿@model PessoasModel;
+
+@{
+    ViewData["Title"] = "Cadastrando Pessoa";
+
+    // Obter o dia atual para levar em conta no Cadastro
+    var dataAtualTela = DateTime.Now.ToString("yyyy-MM-dd");
+    var dataAtualInsert = DateTime.Now;
+}
+
+
+<!-- Exibir as mensagens dos erros tratados no Controller-->
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Cadastrando Pessoa</h1>
+</div>
+
+
+<!--
+    # TODO
+    Regras para os Campos do Cadastro:
+    ID: Identificador do Funcionári, Campo obrigatório; Deve ser único;
+    Nome: Nome da pessoa, Campo obrigatório;
+    CPF: Número do CPF do funcionário, Campo obrigatório; Deve ser único; Não deve permitir dois funcionários com o mesmo CPF;
+    Situacao: Identifica se o cadastro está ativo ou inativo, Campo obrigatório; Deve receber apenas os valores “A” para Ativo e “I” para Inativo; Ao gravar pela primeira vez, não deve permitir gravar como “I”;
+    Data_de_Alteracao: Determina última data e hora que foi alterado o cadastro
+-->
+
+
+<form class="row g-2" asp-controller="Pessoas" asp-action="Criar" method="post">
+    <div class="col-md-2">
+        <label for="inputID" class="form-label">ID</label>
+        <input type="number" asp-for="ID" class="form-control" id="inputID" value="@(Model?.ID != null && Model.ID != 0 ? Model.ID : ViewBag.ProximoId)"
+               aria-label="ID da Pessoa" required>
+    </div>
+
+
+    <div class="col-md-10">
+        <label for="inputNome" class="form-label">Nome da Pessoa</label>
+        <input type="text" asp-for="Nome" class="form-control" id="inputNome" placeholder="João da Silva" aria-label="Nome da Pessoa" required>
+    </div>
+
+    <div class="col-md-2">
+        <label for="selectSituacao" class="form-label">Situação</label>
+        <select class="form-select" asp-for="Situacao" id="selectSituacao" required>
+            <option selected value="A">Ativo</option>
+            <option value="I">Inativo</option>
+        </select>
+    </div>
+    <div class="col-md-5">
+        <label for="inputCPF" class="form-label">CPF</label>
+        <input type="text" asp-for="CPF" class="form-control" id="inputCPF" placeholder="123.456.789-00" aria-label="CPF da Pessoa" maxlength="14" autocomplete="off" required>
+    </div>
+    <input type="hidden" asp-for="DataDeAlteracao" value="@dataAtualInsert" />
+    <div class="col-md-5">
+        <label for="inputData" class="form-label">Data do Cadastro</label>
+        <input type="date" class="form-control" id="inputData" value="@dataAtualTela" aria-label="Data do Cadastro da Pessoa" disabled>
+    </div>
+
+    <!--d-flex justify-content-between: Vai fazer ocupar todas as 12 colunas do Bootstrap mantendo cada botão em um canto da página-->
+    <div class="col-12 d-flex justify-content-between">
+        <a role="button" class="btn btn-secondary col-1" asp-controller="Pessoas" asp-action="Index">Voltar</a>
+        <button class="btn btn-success col-3" id="buttonCriar" type="submit">Criar</button>
+    </div>
+</form>
+
+<script src="~/js/MascaraCPF.js"></script>

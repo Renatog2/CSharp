@@ -1,0 +1,62 @@
+﻿@model List<PessoasModel>
+
+@{
+    ViewData["Title"] = "Cadastros";
+}
+
+
+<!-- Exibir as mensagens de erro/sucesso no Cadastro-->
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Sucesso"];
+    </div>
+}
+
+@if (TempData["Falha"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Falha"];
+    </div>
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Listando Pessoas</h1>
+</div>
+
+
+<div>
+    <a role="button" class="btn btn-success btn-sm" asp-controller="Pessoas" asp-action="Criar">Nova Pessoa</a>
+</div>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Situação</th>
+                <th scope="col">Data da Ultima Alteração</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model != null && Model.Any())
+            {
+                foreach (PessoasModel pessoas in Model)
+                {
+                    <tr>
+                        <th scope="row">@pessoas.ID</th>
+                        <td>@pessoas.Nome</td>
+                        <td>@pessoas.CPF</td>
+                        <td>@(pessoas.Situacao == "A" ? "Ativo" : "Inativo")</td>
+                        <td>@pessoas.DataDeAlteracao.ToString("dd-MM-yyyy")</td>
+                        <td><a role="button" class="btn btn-outline-primary btn-sm" asp-route-id="@pessoas.ID" asp-controller="Pessoas" asp-action="Editar">Editar</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

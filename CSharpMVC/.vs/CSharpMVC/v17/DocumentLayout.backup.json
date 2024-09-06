@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\CSharp\\CSharpMVC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|d:\\projects\\csharp\\csharpmvc\\csharpmvc\\controllers\\pessoascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|solutionrelative:csharpmvc\\controllers\\pessoascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|d:\\projects\\csharp\\csharpmvc\\csharpmvc\\views\\pessoas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|solutionrelative:csharpmvc\\views\\pessoas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|d:\\projects\\csharp\\csharpmvc\\csharpmvc\\views\\pessoas\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|solutionrelative:csharpmvc\\views\\pessoas\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Views\\Pessoas\\Index.cshtml",
+              "RelativeDocumentMoniker": "CSharpMVC\\Views\\Pessoas\\Index.cshtml",
+              "ToolTip": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Views\\Pessoas\\Index.cshtml",
+              "RelativeToolTip": "CSharpMVC\\Views\\Pessoas\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-06T18:33:11.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Criar.cshtml",
+              "DocumentMoniker": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Views\\Pessoas\\Criar.cshtml",
+              "RelativeDocumentMoniker": "CSharpMVC\\Views\\Pessoas\\Criar.cshtml",
+              "ToolTip": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Views\\Pessoas\\Criar.cshtml",
+              "RelativeToolTip": "CSharpMVC\\Views\\Pessoas\\Criar.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAABkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-06T18:22:52.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PessoasController.cs",
+              "DocumentMoniker": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Controllers\\PessoasController.cs",
+              "RelativeDocumentMoniker": "CSharpMVC\\Controllers\\PessoasController.cs",
+              "ToolTip": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Controllers\\PessoasController.cs",
+              "RelativeToolTip": "CSharpMVC\\Controllers\\PessoasController.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAcwFYAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T18:19:15.341Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
