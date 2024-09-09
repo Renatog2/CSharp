@@ -1,8 +1,5 @@
 ﻿@{
     ViewData["Title"] = "Editando Ticket";
-
-    // Obter o dia atual para levar em conta no Cadastro
-    var dataAtual = DateTime.Now;
 }
 
 <div class="text-center">
@@ -44,10 +41,10 @@
         <label for="selectSituacao" class="form-label">Quantidade de Tickets Entregues</label>
         <input type="number" class="form-control" id="inputQuantidade" placeholder="123" aria-label="Quantidade de Tickets" required>
     </div>
-    <input type="hidden" value="@dataAtual" />
+    <input type="hidden" />
     <div class="col-md-5">
         <label for="inputData" class="form-label">Data do Cadastro</label>
-        <input type="date" class="form-control" id="inputData" value="@dataAtual" aria-label="Data do Cadastro do Ticket" disabled>
+        <input type="date" class="form-control" id="inputData" aria-label="Data do Cadastro do Ticket" disabled>
     </div>
 
     <!--d-flex justify-content-between: Vai fazer ocupar todas as 12 colunas do Bootstrap mantendo cada botão em um canto da página-->

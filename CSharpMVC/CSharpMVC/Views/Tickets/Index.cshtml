@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<TicketsModel>
+
+@{
     ViewData["Title"] = "Cadastros";
 }
 
@@ -13,7 +15,7 @@
 
 @if (TempData["Falha"] != null)
 {
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-danger" role="alert">
         @TempData["Falha"];
     </div>
 }
@@ -43,15 +45,15 @@
         <tbody>
             @if (Model != null && Model.Any())
             {
-                foreach (PessoasModel pessoas in Model)
+                foreach (TicketsModel tickets in Model)
                 {
                     <tr>
-                        <th scope="row">@pessoas.ID</th>
-                        <td>@pessoas.Nome</td>
-                        <td>@pessoas.CPF</td>
-                        <td>@(pessoas.Situacao == "A" ? "Ativo" : "Inativo")</td>
-                        <td>@pessoas.DataDeAlteracao.ToString("dd-MM-yyyy")</td>
-                        <td><a role="button" class="btn btn-outline-primary btn-sm" asp-route-id="@pessoas.ID" asp-controller="Tickets" asp-action="Editar">Editar</a></td>
+                        <th scope="row">@tickets.ID</th>
+                        <td>@ViewBag.PessoasNomes[tickets.FK_IDPessoas]</td>
+                        <td>@tickets.Quantidade</td>
+                        <td>@(tickets.Situacao == "A" ? "Ativo" : "Inativo")</td>
+                        <td>@tickets.DataDeEntrega.ToString("dd-MM-yyyy")</td>
+                        <td><a role="button" class="btn btn-outline-primary btn-sm" asp-route-id="@tickets.ID" asp-controller="Tickets" asp-action="Editar">Editar</a></td>
                     </tr>
                 }
             }

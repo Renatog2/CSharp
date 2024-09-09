@@ -35,6 +35,7 @@ namespace CSharpMVC.Repository
             return ticketDB;
         }
 
+
         // Obter Ticket
         public List<TicketsModel> BuscarTodos()
         {
@@ -57,6 +58,5 @@ namespace CSharpMVC.Repository
             var ultimoID = _dbContext.Tickets.OrderByDescending(p => p.ID).FirstOrDefault();
             return ultimoID != null ? ultimoID.ID : 0;
         }
-
     }
 }

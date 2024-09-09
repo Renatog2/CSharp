@@ -11,7 +11,6 @@ namespace CSharpMVC.Models
 
         public int FK_IDPessoas { get; set; }
 
-        [StringLength(14)]
         public int Quantidade { get; set; }
 
         [StringLength(1)]

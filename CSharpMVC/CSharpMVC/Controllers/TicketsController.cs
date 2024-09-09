@@ -7,17 +7,32 @@ namespace CSharpMVC.Controllers
     public class TicketsController : Controller
     {
         private readonly ITicketsRepository _ticketsRepository;
+        private readonly IPessoasRepository _pessoasRepository;
 
-        public TicketsController(ITicketsRepository ticketsRepository)
+        public TicketsController(ITicketsRepository ticketsRepository, IPessoasRepository pessoasRepository)
         {
             _ticketsRepository = ticketsRepository;
+            _pessoasRepository = pessoasRepository;
         }
 
 
-        // Pagina Index com valor do ID sugerido
+        // Pagina Index
         public IActionResult Index()
         {
             List<TicketsModel> tickets = _ticketsRepository.BuscarTodos();
+
+            // Obter o nome da pessoa para listagem na Index
+            Dictionary<int, string> pessoasNomes = new Dictionary<int, string>();
+            foreach (var ticket in tickets)
+            {
+                var pessoa = _pessoasRepository.BuscarPessoa(ticket.FK_IDPessoas);
+                if (pessoa != null)
+                {
+                    pessoasNomes[ticket.FK_IDPessoas] = pessoa.Nome;
+                }
+            }
+
+            ViewBag.PessoasNomes = pessoasNomes;
             return View(tickets);
         }
 
@@ -28,6 +43,11 @@ namespace CSharpMVC.Controllers
             // Obter o último ID cadastrado e passa para a View como sugestão
             int proximoId = _ticketsRepository.ObterUltimoID() + 1;
             ViewBag.ProximoId = proximoId;
+
+            // Buscar as Pessoas para o cadastro de Ticket
+            var pessoas = _pessoasRepository.BuscarTodos();
+            ViewBag.Pessoas = pessoas;
+
             return View();
         }
 
@@ -60,12 +80,16 @@ namespace CSharpMVC.Controllers
                 }
 
                 // Se houver erros de validação, retorna a mesma view com o modelo e os erros
+                int proximoId = _ticketsRepository.ObterUltimoID() + 1;
+                ViewBag.ProximoId = proximoId;
+                var pessoas = _pessoasRepository.BuscarTodos();
+                ViewBag.Pessoas = pessoas;
                 return View(ticketsModel);
 
             }
             catch (Exception ex)
             {
-                TempData["Falha"] = $"Ocorreu um erro ao realizar a Operação:  + {ex.Message}";
+                TempData["Falha"] = $"Ocorreu um erro ao realizar a Operação: + {ex.Message}";
                 return RedirectToAction("Index");
             }
         }

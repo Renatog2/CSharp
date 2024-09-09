@@ -10,8 +10,9 @@ builder.Services.AddDbContext<DBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-// Registrar o IPessoasRepository
+// Registrar as Interfaces
 builder.Services.AddScoped<IPessoasRepository, PessoasRepository>();
+builder.Services.AddScoped<ITicketsRepository, TicketsRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
