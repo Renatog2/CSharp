@@ -5,6 +5,7 @@ namespace CSharpMVC.Repository
 {
     public class PessoasRepository : IPessoasRepository
     {
+        // Conectar o Repositório com o Banco
         private readonly DBContext _dbContext;
 
         public PessoasRepository(DBContext dBContext)
@@ -39,6 +40,26 @@ namespace CSharpMVC.Repository
         public List<PessoasModel> BuscarTodos()
         {
             return _dbContext.Pessoas.ToList();
+        }
+        public IEnumerable<PessoasModel> ObterPessoasPaginadas(int pageNumber, int pageSize, string searchTerm = "")
+        {
+            var query = _dbContext.Pessoas.AsQueryable();
+
+            // Busca pelo nome da pessoa
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                query = query.Where(p => p.Nome.Contains(searchTerm));
+            }
+            return query.OrderBy(p => p.ID).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+        }
+        public int ObterTotalDePessoas(string searchTerm = "")
+        {
+            var query = _dbContext.Pessoas.AsQueryable();
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                query = query.Where(p => p.Nome.Contains(searchTerm));
+            }
+            return query.Count();
         }
 
 

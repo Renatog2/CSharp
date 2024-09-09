@@ -6,6 +6,10 @@ namespace CSharpMVC.Repository
     {
         PessoasModel BuscarPessoa(int ID);
 
+        IEnumerable<PessoasModel> ObterPessoasPaginadas(int pageNumber, int pageSize, string searchTerm = "");
+
+        int ObterTotalDePessoas(string searchTerm = "");
+
         List<PessoasModel> BuscarTodos();
 
         int ObterUltimoID();

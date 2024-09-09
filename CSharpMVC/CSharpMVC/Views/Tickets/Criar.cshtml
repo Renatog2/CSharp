@@ -1,4 +1,6 @@
-﻿@{
+﻿@model TicketsModel
+
+@{
     ViewData["Title"] = "Cadastrando Ticket";
 
     // Obter o dia atual para levar em conta no Cadastro
@@ -39,12 +41,12 @@
 <form class="row g-2" asp-controller="Tickets" asp-action="Criar" method="post">
     <div class="col-md-2">
         <label for="inputID" class="form-label">ID</label>
-        <!--<input type="number" class="form-control" id="inputID" value="@(Model?.ID != null && Model.ID != 0 ? Model.ID : ViewBag.ProximoId)" aria-label="ID da Pessoa" required>-->
-        <input type="number" class="form-control" id="inputID" aria-label="ID do Ticket" required>
+        <input type="number" asp-for="ID" class="form-control" id="inputID" value="@(Model?.ID != null && Model.ID != 0 ? Model.ID : ViewBag.ProximoId)"
+        aria-label="ID do Ticket" required>
     </div>
     <div class="col-md-10">
         <label for="selectPessoa" class="form-label">Pessoa</label>
-        <select class="form-select" id="selectPessoa" required>
+        <select class="form-select" asp-for="FK_IDPessoas" id="selectPessoa" required>
             <option selected value="A">Ativo</option>
             <option value="I">Inativo</option>
         </select>
@@ -52,19 +54,19 @@
 
     <div class="col-md-2">
         <label for="selectSituacao" class="form-label">Situação</label>
-        <select class="form-select" id="selectSituacao" required>
+        <select class="form-select" asp-for="Situacao" id="selectSituacao" required>
             <option selected value="A">Ativo</option>
             <option value="I">Inativo</option>
         </select>
     </div>
     <div class="col-md-5">
         <label for="selectSituacao" class="form-label">Quantidade de Tickets Entregues</label>
-        <input type="number" class="form-control" id="inputQuantidade" placeholder="123" aria-label="Quantidade de Tickets" required>
+        <input type="number" asp-for="Quantidade" class="form-control" id="inputQuantidade" placeholder="123" aria-label="Quantidade de Tickets" required>
     </div>
     <input type="hidden" value="@dataAtual" />
     <div class="col-md-5">
         <label for="inputData" class="form-label">Data do Cadastro</label>
-        <input type="datetime" class="form-control" id="inputData" value="@dataAtual" aria-label="Data do Cadastro do Ticket" disabled>
+        <input type="datetime" asp-for="DataDeEntrega" class="form-control" id="inputData" value="@dataAtual" aria-label="Data do Cadastro do Ticket" disabled>
     </div>
 
     <!--d-flex justify-content-between: Vai fazer ocupar todas as 12 colunas do Bootstrap mantendo cada botão em um canto da página-->

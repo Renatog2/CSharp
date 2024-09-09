@@ -14,10 +14,18 @@ namespace CSharpMVC.Controllers
         }
 
 
-        // Pagina Index com valor do ID sugerido
-        public IActionResult Index()
+        // Pagina Index, listando 15 itens por pagina
+        public IActionResult Index(string searchTerm = "", int pageNumber = 1, int pageSize = 15)
         {
-            List<PessoasModel> pessoas = _pessoasRepository.BuscarTodos();
+            /* totalItems e totalPages: Busca todas as pessoas no Banco, cria a quantidade de paginas e faz a paginação
+             * searchTerm: Funçaõ de pesquisa por nome
+             */
+            var totalItems = _pessoasRepository.ObterTotalDePessoas(searchTerm);
+            var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+            var pessoas = _pessoasRepository.ObterPessoasPaginadas(pageNumber, pageSize, searchTerm);
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageNumber = pageNumber;
+            ViewBag.SearchTerm = searchTerm;
             return View(pessoas);
         }
 
@@ -92,9 +100,9 @@ namespace CSharpMVC.Controllers
                 var CPFExistente = _pessoasRepository.BuscarCPF(pessoasModel.CPF);
                 if (CPFExistente != null && CPFExistente.ID != pessoasModel.ID)
                     if (CPFExistente != null)
-                {
-                    ModelState.AddModelError("CPF", "Já existe uma pessoa cadastrada com esse CPF.");
-                }
+                    {
+                        ModelState.AddModelError("CPF", "Já existe uma pessoa cadastrada com esse CPF.");
+                    }
 
                 // Para quando nenhuma validação apresentou erros
                 if (ModelState.IsValid)

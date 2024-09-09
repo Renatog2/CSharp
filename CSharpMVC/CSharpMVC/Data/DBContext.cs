@@ -10,5 +10,7 @@ namespace CSharpMVC.Data
         public DBContext(DbContextOptions<DBContext> options) : base(options) { }
 
         public DbSet<PessoasModel> Pessoas { get; set; }
+
+        public DbSet<TicketsModel> Tickets { get; set; }
     }
 }
