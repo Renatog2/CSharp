@@ -1,10 +1,15 @@
-﻿@{
+﻿@model TicketsModel
+
+@{
     ViewData["Title"] = "Editando Ticket";
+
+    var dataAtualInsert = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 }
 
 <div class="text-center">
     <h1 class="display-4">Editando Ticket</h1>
 </div>
+
 
 <!--
     # TODO
@@ -16,40 +21,41 @@
     data_De_Entrega: Armazena a data e hora que foi entregue o ticket
 -->
 
-<form class="row g-2" asp-controller="Tickets" asp-action="Criar" method="post">
+
+<form class="row g-2" asp-controller="Tickets" asp-action="Atualizar" method="post">
+    <input type="hidden" asp-for="ID" />
     <div class="col-md-2">
         <label for="inputID" class="form-label">ID</label>
-        <!--<input type="number" class="form-control" id="inputID" value="@(Model?.ID != null && Model.ID != 0 ? Model.ID : ViewBag.ProximoId)" aria-label="ID da Pessoa" required>-->
-        <input type="number" class="form-control" id="inputID" aria-label="ID do Ticket" required>
+        <input type="number" asp-for="ID" class="form-control" id="inputID" aria-label="ID do Ticket" disabled>
     </div>
     <div class="col-md-10">
-        <label for="selectPessoa" class="form-label">Pessoa</label>
-        <select class="form-select" id="selectPessoa" required>
-            <option selected value="A">Ativo</option>
-            <option value="I">Inativo</option>
+        <label for="PessoaId" class="form-label">Nome da Pessoa</label>
+        <select class="form-select" asp-for="FK_IDPessoas" id="PessoaId" asp-items="@(new SelectList(ViewBag.Pessoas, "ID", "Nome"))" required>
+            <option value="">Selecione uma pessoa</option>
         </select>
     </div>
 
     <div class="col-md-2">
         <label for="selectSituacao" class="form-label">Situação</label>
-        <select class="form-select" id="selectSituacao" required>
+        <select class="form-select" asp-for="Situacao" id="selectSituacao" required>
             <option selected value="A">Ativo</option>
             <option value="I">Inativo</option>
         </select>
     </div>
     <div class="col-md-5">
-        <label for="selectSituacao" class="form-label">Quantidade de Tickets Entregues</label>
-        <input type="number" class="form-control" id="inputQuantidade" placeholder="123" aria-label="Quantidade de Tickets" required>
+        <label for="inputQuantidade" class="form-label">Quantidade de Tickets Entregues</label>
+        <input type="number" asp-for="Quantidade" class="form-control" id="inputQuantidade" aria-label="Quantidade de Tickets" maxlength="14" required>
     </div>
-    <input type="hidden" />
     <div class="col-md-5">
-        <label for="inputData" class="form-label">Data do Cadastro</label>
-        <input type="date" class="form-control" id="inputData" aria-label="Data do Cadastro do Ticket" disabled>
+        <label for="inputData" class="form-label">Data de Entrega do Ticket</label>
+        <input type="datetime" class="form-control" asp-for="DataDeEntrega" value="@Model.DataDeEntrega.ToString("dd-MM-yyyy HH:mm:ss")" id="inputData" aria-label="Data de Entrega do Ticket" required>
     </div>
 
     <!--d-flex justify-content-between: Vai fazer ocupar todas as 12 colunas do Bootstrap mantendo cada botão em um canto da página-->
     <div class="col-12 d-flex justify-content-between">
-        <a role="button" class="btn btn-secondary col-1" asp-controller="Tickets" asp-action="Index">Voltar</a>
-        <button class="btn btn-success col-3" id="buttonCriar" type="submit">Criar</button>
+        <a role="button" class="btn btn-secondary col-2" asp-controller="Tickets" asp-action="Index">Voltar</a>
+        <button class="btn btn-success col-3" id="buttonCriar" type="submit">Salvar Alterações</button>
     </div>
 </form>
+
+<script src="~/js/MascaraCPF.js"></script>

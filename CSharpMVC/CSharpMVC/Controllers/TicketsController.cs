@@ -96,10 +96,15 @@ namespace CSharpMVC.Controllers
 
 
         // Editar Ticket
-        public IActionResult Editar(int ID)
+        public IActionResult Editar(int id)
         {
-            TicketsModel ticketsModel = _ticketsRepository.BuscarTicket(ID);
-            return View(ticketsModel);
+            var ticket = _ticketsRepository.BuscarTicket(id);
+
+            // Retornar as pessoas do Ticket
+            var pessoas = _pessoasRepository.BuscarTodos();
+            ViewBag.Pessoas = pessoas;
+
+            return View(ticket);
         }
         [HttpPost]
         public IActionResult Atualizar(TicketsModel ticketsModel)
