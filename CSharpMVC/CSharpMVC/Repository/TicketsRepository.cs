@@ -35,7 +35,6 @@ namespace CSharpMVC.Repository
             return ticketDB;
         }
 
-
         // Obter Ticket
         public List<TicketsModel> BuscarTodos()
         {
