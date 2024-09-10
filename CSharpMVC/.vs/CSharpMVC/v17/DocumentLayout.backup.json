@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "D:\\Projects\\CSharp\\CSharpMVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|d:\\projects\\csharp\\csharpmvc\\csharpmvc\\views\\relatorios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|solutionrelative:csharpmvc\\views\\relatorios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|d:\\projects\\csharp\\csharpmvc\\csharpmvc\\controllers\\relatorioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|solutionrelative:csharpmvc\\controllers\\relatorioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|d:\\projects\\csharp\\csharpmvc\\csharpmvc\\models\\relatoriosviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|solutionrelative:csharpmvc\\models\\relatoriosviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|d:\\projects\\csharp\\csharpmvc\\csharpmvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7C93DDE9-22D1-45C4-880B-BCE07578F05F}|CSharpMVC\\CSharpMVC.csproj|solutionrelative:csharpmvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RelatoriosViewModel.cs",
-              "DocumentMoniker": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Models\\RelatoriosViewModel.cs",
-              "RelativeDocumentMoniker": "CSharpMVC\\Models\\RelatoriosViewModel.cs",
-              "ToolTip": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Models\\RelatoriosViewModel.cs",
-              "RelativeToolTip": "CSharpMVC\\Models\\RelatoriosViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T11:59:22.902Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RelatoriosController.cs",
-              "DocumentMoniker": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Controllers\\RelatoriosController.cs",
-              "RelativeDocumentMoniker": "CSharpMVC\\Controllers\\RelatoriosController.cs",
-              "ToolTip": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Controllers\\RelatoriosController.cs",
-              "RelativeToolTip": "CSharpMVC\\Controllers\\RelatoriosController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwEAAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T11:33:52.931Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Views\\Relatorios\\Index.cshtml",
-              "RelativeDocumentMoniker": "CSharpMVC\\Views\\Relatorios\\Index.cshtml",
-              "ToolTip": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Views\\Relatorios\\Index.cshtml",
-              "RelativeToolTip": "CSharpMVC\\Views\\Relatorios\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "CSharpMVC\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Projects\\CSharp\\CSharpMVC\\CSharpMVC\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "CSharpMVC\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-10T12:00:55.825Z",
+              "WhenOpened": "2024-09-10T12:18:11.372Z",
               "EditorCaption": ""
             }
           ]
