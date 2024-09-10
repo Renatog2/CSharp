@@ -1,0 +1,65 @@
+﻿@model CSharpMVC.Models.RelatorioViewModel
+
+
+@{
+    ViewData["Title"] = "Relatórios";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Relatório de Tickets</h1>
+</div>
+
+
+<form asp-action="Relatorio" method="post">
+    <div class="row">
+        <div class="col-md-3">
+            <label>Data Início:</label>
+            <input type="datetime-local" class="form-control" asp-for="DataInicio" />
+        </div>
+        <div class="col-md-3">
+            <label>Data Fim:</label>
+            <input type="datetime-local" class="form-control" asp-for="DataFim" />
+        </div>
+        <div class="col-md-3">
+            <label>Pessoa:</label>
+            <select class="form-control" asp-for="PessoaId" asp-items="Model.Pessoas">
+                <option value="">Todas as Pessoas</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary mt-4">Filtrar</button>
+            <button type="button" class="btn btn-secondary mt-4" onclick="window.print()">Imprimir</button>
+        </div>
+    </div>
+</form>
+
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Pessoa</th>
+            <th>Quantidade</th>
+            <th>Situação</th>
+            <th>Data de Entrega</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model.Tickets)
+        {
+            <tr>
+                <td>@ticket.ID</td>
+                <td>@Model.Pessoas.FirstOrDefault(p => p.Value == ticket.FK_IDPessoas.ToString())?.Text</td>
+                <td>@ticket.Quantidade</td>
+                <td>@(ticket.Situacao == "A" ? "Ativo" : "Inativo")</td>
+                <td>@ticket.DataDeEntrega.ToString("dd-MM-yyyy HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="mt-3">
+    <strong>Quantidade Total de Tickets no Filtro Aplicado: @ViewBag.TotalQuantidade</strong>
+</div>

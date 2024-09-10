@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-5">
         <label for="inputData" class="form-label">Data de Entrega do Ticket</label>
-        <input type="datetime" class="form-control" asp-for="DataDeEntrega" value="@Model.DataDeEntrega.ToString("dd-MM-yyyy HH:mm:ss")" id="inputData" aria-label="Data de Entrega do Ticket" required>
+        <input type="datetime-local" class="form-control" asp-for="DataDeEntrega" value="@Model.DataDeEntrega.ToString("dd-MM-yyyy HH:mm:ss")" id="inputData" aria-label="Data de Entrega do Ticket" required>
     </div>
 
     <!--d-flex justify-content-between: Vai fazer ocupar todas as 12 colunas do Bootstrap mantendo cada botão em um canto da página-->

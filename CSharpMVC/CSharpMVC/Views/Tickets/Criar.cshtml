@@ -4,7 +4,9 @@
     ViewData["Title"] = "Cadastrando Ticket";
 
     // Obter o dia atual para levar em conta no Cadastro
-    var dataAtual = DateTime.Now;
+
+    var dataAtualTela = DateTime.Now.ToString("dd-MM-yyyy HH:mm");
+    var dataAtualInsert = DateTime.Now;
 }
 
 
@@ -64,10 +66,10 @@
         <label for="inputQuantidade" class="form-label">Quantidade de Tickets Entregues</label>
         <input type="number" asp-for="Quantidade" class="form-control" id="inputQuantidade" placeholder="123" aria-label="Quantidade de Tickets" required>
     </div>
-    <input type="hidden" asp-for="DataDeEntrega" value="@dataAtual" />
+    <input type="hidden" asp-for="DataDeEntrega" value="@dataAtualInsert" />
     <div class="col-md-5">
         <label for="inputData" class="form-label">Data do Cadastro</label>
-        <input type="datetime" asp-for="DataDeEntrega" class="form-control" id="inputData" value="@dataAtual" aria-label="Data do Cadastro do Ticket" disabled>
+        <input type="datetime" asp-for="DataDeEntrega" class="form-control" id="inputData" value="@dataAtualTela" aria-label="Data do Cadastro do Ticket" disabled>
     </div>
 
     <!--d-flex justify-content-between: Vai fazer ocupar todas as 12 colunas do Bootstrap mantendo cada botão em um canto da página-->
