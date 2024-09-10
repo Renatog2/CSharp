@@ -13,23 +13,33 @@
 
 <form asp-action="Relatorio" method="post">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label>Data Início:</label>
             <input type="datetime-local" class="form-control" asp-for="DataInicio" />
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label>Data Fim:</label>
             <input type="datetime-local" class="form-control" asp-for="DataFim" />
         </div>
-        <div class="col-md-3">
+        <div class="col-md-5">
             <label>Pessoa:</label>
             <select class="form-control" asp-for="PessoaId" asp-items="Model.Pessoas">
                 <option value="">Todas as Pessoas</option>
             </select>
         </div>
         <div class="col-md-3">
-            <button type="submit" class="btn btn-primary mt-4">Filtrar</button>
+            <label>Situação:</label>
+            <select class="form-control" asp-for="Situacao">
+                <option value="">Todos</option>
+                <option value="A">Ativo</option>
+                <option value="I">Inativo</option>
+            </select>
+        </div>
+
+        <!--d-flex justify-content-between: Vai fazer ocupar todas as 12 colunas do Bootstrap mantendo cada botão em um canto da página-->
+        <div class="col-12 d-flex justify-content-between">
             <button type="button" class="btn btn-secondary mt-4" onclick="window.print()">Imprimir</button>
+            <button type="submit" class="btn btn-primary mt-4">Filtrar</button>
         </div>
     </div>
 </form>

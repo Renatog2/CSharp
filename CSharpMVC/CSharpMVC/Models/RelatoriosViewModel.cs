@@ -10,6 +10,8 @@ namespace CSharpMVC.Models
 
         public int? PessoaId { get; set; }
 
+        public string Situacao { get; set; }
+
         public List<SelectListItem> Pessoas { get; set; }
 
         public List<TicketsModel> Tickets { get; set; }

@@ -31,7 +31,12 @@ public class RelatoriosController : Controller
     public IActionResult Relatorio(RelatorioViewModel filtro)
     {
         // Obter as pessoas para o dropdown
-        filtro.Pessoas = _pessoasRepository.BuscarTodos().Select(p => new SelectListItem { Value = p.ID.ToString(), Text = p.Nome }).ToList();
+        filtro.Pessoas = _pessoasRepository.BuscarTodos().Select(p => new SelectListItem
+        {
+            Value = p.ID.ToString(),
+            Text = p.Nome
+        }).ToList();
+
         var tickets = _ticketsRepository.BuscarTodos();
 
         // Filtros, por ser DATETIME garante que na pesquisa os segundos iniciais serão sempre zero e os finais 59
@@ -49,11 +54,15 @@ public class RelatoriosController : Controller
         {
             tickets = tickets.Where(t => t.FK_IDPessoas == filtro.PessoaId.Value).ToList();
         }
-        filtro.Tickets = tickets;
+        if (!string.IsNullOrEmpty(filtro.Situacao))
+        {
+            tickets = tickets.Where(t => t.Situacao == filtro.Situacao).ToList();
+        }
 
         // Totalizador de Tickets
         ViewBag.TotalQuantidade = tickets.Sum(t => t.Quantidade);
 
+        filtro.Tickets = tickets;
         return View("Index", filtro);
     }
 }
