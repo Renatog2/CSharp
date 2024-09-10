@@ -11,7 +11,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 
 ## Projeto
-Sistema para Controle de Tickets, com Cadastro de Pessoas e Tickets e Relatório.
+Sistema para Controle de Tickets, com Cadastro de Pessoas e Tickets e Relatório. A problemática é que Atualmente uma empresa com mais de 1000 funcionários distribui tickets de refeições para seus colaboradores, porém, todo o controle é feito com anotações em um caderno.
 
 
 ## Observações
@@ -20,8 +20,10 @@ Embora o projeto possua Migrations, devido ao ID ser flexível no momento do Cad
 
 ## Referências
 Foram utilizados como Referências:
-Quebrando O Código: https://www.youtube.com/@quebrandoocodigo5871
-Programador Tech: https://www.youtube.com/@ProgramadorTech
-Bóson Treinamentos: https://www.youtube.com/@bosontreinamentos
-Crislaine D'Paula (CrisTech): https://www.youtube.com/@CrisTech20
-Chat GPT: https://chat.openai.com/
+<ul dir="auto">
+<li>Quebrando O Código: https://www.youtube.com/@quebrandoocodigo5871</li>
+<li>Programador Tech: https://www.youtube.com/@ProgramadorTech</li>
+<li>Bóson Treinamentos: https://www.youtube.com/@bosontreinamentos</li>
+<li>Crislaine D'Paula (CrisTech): https://www.youtube.com/@CrisTech20</li>
+<li>Chat GPT: https://chat.openai.com/</li>
+</ul>
